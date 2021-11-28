@@ -260,11 +260,11 @@ def update_output(n_clicks, value):
         index_list_filter = default_index_list_filter
 
         if list_existe[0] == 0:
-            index_list_filter.pop(1)
+            index_list_filter.remove("Annual CO2 emissions (per capita)")
         if list_existe[1] == 0:
-            index_list_filter.pop(2)
+            index_list_filter.remove("Average monthly precipitation")
         if list_existe[2] == 0:
-            index_list_filter.pop(4)
+            index_list_filter.remove("Total GHG emissions excluding LUCF (CAIT)")
 
         
         print(index_list_filter)
