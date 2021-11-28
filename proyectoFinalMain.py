@@ -177,17 +177,8 @@ app.layout =html.Div(html.Div(html.Div([
         
         fill_width=False
     )],className="col"),
-    
-],className="row"),className="container"),style={'margin-top':'2%'},className="container-fluid porPais")
 
-
-#               FILTRO PARA MOSTRAR EL EXCELL CON MENOS COLUMNAS O CUANTAS COLUMNAS SE HAYAN SELECCIONADO.
-#
-#                                       Indice #1                       Indice #3                           Indice #4
-#.......=['Entity','Annual CO2 emissions (per capita)','Year','Average monthly precipitation','Total GHG emissions excluding LUCF (CAIT)','Region']
-
-#CheckBox
-app.layout = html.Div(
+    html.Div(
     [
         dcc.Checklist(
             id="all-or-none",
@@ -205,15 +196,49 @@ app.layout = html.Div(
             value=[],
             labelStyle={"display": "inline-block"},
         ),
-    ]
-)
+    ]),
+    html.Div([
+        html.Button('Submit', id='submit-val', n_clicks=0),
+        html.Div(id='container-button-basic',
+                children='None')
+    ]),
 
-#Button to filter the excell with the data of the checkbox
-app.layout = html.Div([
-    html.Button('Submit', id='submit-val', n_clicks=0),
-    html.Div(id='container-button-basic',
-             children='None')
-])
+],className="row"),className="container"),style={'margin-top':'2%'},className="container-fluid porPais")
+
+
+#               FILTRO PARA MOSTRAR EL EXCELL CON MENOS COLUMNAS O CUANTAS COLUMNAS SE HAYAN SELECCIONADO.
+#
+#                                       Indice #1                       Indice #3                           Indice #4
+#.......=['Entity','Annual CO2 emissions (per capita)','Year','Average monthly precipitation','Total GHG emissions excluding LUCF (CAIT)','Region']
+
+# #CheckBox
+# app.layout = html.Div(
+#     [
+#         dcc.Checklist(
+#             id="all-or-none",
+#             options=[{"label": "Select All", "value": "All"}],
+#             value=[],
+#             labelStyle={"display": "inline-block"},
+#         ),
+#         dcc.Checklist(
+#             id="my-checklist",
+#             options=[
+#                 {"label": "CO2", "value": "Annual CO2 emissions (per capita)"},             # Indice #1
+#                 {"label": "Ruin", "value": "Average monthly precipitation"},                # Indice #3
+#                 {"label": "GHG", "value": "Total GHG emissions excluding LUCF (CAIT)"},     # Indice #4
+#             ],
+#             value=[],
+#             labelStyle={"display": "inline-block"},
+#         ),
+#     ]
+# )
+
+# #Button to filter the excell with the data of the checkbox
+# app.layout = html.Div([
+#     html.Button('Submit', id='submit-val', n_clicks=0),
+#     html.Div(id='container-button-basic',
+#              children='None')
+# ])
 
 @app.callback(
     Output('container-button-basic', 'children'),
