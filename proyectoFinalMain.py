@@ -180,12 +180,12 @@ app.layout =html.Div(html.Div(html.Div([
 
     html.Div(
     [
-        dcc.Checklist(
-            id="all-or-none",
-            options=[{"label": "Select All", "value": "All"}],
-            value=[],
-            labelStyle={"display": "inline-block"},
-        ),
+        # dcc.Checklist(
+        #     id="all-or-none",
+        #     options=[{"label": "Select All", "value": "All"}],
+        #     value=[],
+        #     labelStyle={"display": "inline-block"},
+        # ),
         dcc.Checklist(
             id="my-checklist",
             options=[
