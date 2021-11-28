@@ -243,11 +243,11 @@ app.layout =html.Div(html.Div(html.Div([
 @app.callback(
     Output('container-button-basic', 'children'),
     Input('submit-val','n_clicks'),
-    State("my-checklist", "options")
+    State("my-checklist", "value")
 )
-def update_output(n_clicks, options):
+def update_output(n_clicks, value):
     if n_clicks >= 1:
-        all_or_none = [option["value"] for option in options]
+        all_or_none = [option["value"] for option in value]
 
         list_existe = [0,0,0]
 
@@ -276,7 +276,7 @@ def update_output(n_clicks, options):
         #
         #   HERE I have the values of the columns
         #
-    
+        titulos2=index_list_filter
 
 
 # @app.callback(
