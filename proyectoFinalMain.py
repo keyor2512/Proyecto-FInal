@@ -241,10 +241,13 @@ app.layout =html.Div(html.Div(html.Div([
     State("my-checklist", "value")
 )
 def update_output(n_clicks, value):
+    global titulos2
     if n_clicks >= 1:
         print(value)
         all_or_none = value
         list_existe = [0,0,0]
+
+        default_index_list_filter=titulos2
 
         for valorP in all_or_none:
             for valorQ in default_index_list_filter:
