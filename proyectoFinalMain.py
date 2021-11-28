@@ -180,12 +180,7 @@ app.layout =html.Div(html.Div(html.Div([
 
     html.Div(
     [
-        # dcc.Checklist(
-        #     id="all-or-none",
-        #     options=[{"label": "Select All", "value": "All"}],
-        #     value=[],
-        #     labelStyle={"display": "inline-block"},
-        # ),
+ 
         dcc.Checklist(
             id="my-checklist",
             options=[
@@ -247,18 +242,18 @@ app.layout =html.Div(html.Div(html.Div([
 )
 def update_output(n_clicks, value):
     if n_clicks >= 1:
-        all_or_none = [option["value"] for option in value]
-
+        print(value)
+        all_or_none = value
         list_existe = [0,0,0]
 
-        for valor1 in all_or_none:
-            for valor2 in default_index_list_filter:
+        for valorP in all_or_none:
+            for valorQ in default_index_list_filter:
                 
-                if valor1 == "Annual CO2 emissions (per capita)" and valor1 == valor2:
+                if valorP == "Annual CO2 emissions (per capita)" and valorP == valorQ:
                     list_existe[0] = 1
-                elif valor1 == "Average monthly precipitation" and valor1 == valor2:
+                elif valorP == "Average monthly precipitation" and valorP == valorQ:
                     list_existe[1] = 1
-                elif valor1 == "Total GHG emissions excluding LUCF (CAIT)" and valor1 == valor2:
+                elif valorP== "Total GHG emissions excluding LUCF (CAIT)" and valorP == valorQ:
                     list_existe[2] = 1
 
         #....=['Entity','Annual CO2 emissions (per capita)','Year','Average monthly precipitation','Total GHG emissions excluding LUCF (CAIT)']
@@ -271,7 +266,7 @@ def update_output(n_clicks, value):
         if list_existe[2] == 0:
             index_list_filter.pop(4)
 
-        print(all_or_none)
+        
         print(index_list_filter)
         #
         #   HERE I have the values of the columns
